@@ -1,2 +1,2 @@
 # nodejs_express
-REST for react.js
+REST for my react.js application
