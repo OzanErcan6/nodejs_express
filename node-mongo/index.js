@@ -3,6 +3,8 @@ const assert = require('assert');
 const dboper = require('./operations')
 
 // create mongodb container with 
+// sudo docker ps -a
+// sudo docker start b87e02d2c8da
 // sudo docker run --name mongodb -d -p 27017:27017 mongo
 const url = 'mongodb://localhost:27017/';
 const dbname = 'conFusion';
