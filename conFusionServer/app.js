@@ -3,12 +3,33 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var mongoose = require('mongoose')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const dishRouter = require('./routes/dishRouter')
 const leaderRouter = require('./routes/leaderRouter')
 const promotionRouter = require('./routes/promotionRouter')
+
+const Dishes = require('./models/dishes')
+const url = 'mongodb://localhost:27017/conFusion'
+const options = {
+  useMongoClient: true,
+  autoIndex: false, // Don't build indexes
+  reconnectTries: Number.MAX_VALUE, // Never stop trying to reconnect
+  reconnectInterval: 500, // Reconnect every 500ms
+  poolSize: 10, // Maintain up to 10 socket connections
+  // If not connected, return errors immediately rather than waiting for reconnect
+  bufferMaxEntries: 0
+};
+mongoose.Promise = global.Promise;
+const connect = mongoose.connect(url, options)
+
+connect.then((db) => {
+  console.log('connected correctly to the server')
+
+  }, (err) => {console.log(err);
+})
 
 
 var app = express();

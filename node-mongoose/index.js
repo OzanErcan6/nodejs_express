@@ -31,7 +31,7 @@ connect.then((db) => {
         })
         .then((dish) => {
             console.log(dish)   
-            return Dishes.remove({})
+            return  .remove({})
 
         })  
         .then(() => {
