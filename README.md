@@ -8,4 +8,4 @@ Create and run a mongodb container in port 27017 with the command:  <br />
 * sudo docker run --name mongodb -d -p 27017:27017 mongo
 
 Run a docker container with command: <br />
-* sudo docker < start CONTAINER-ID>
+* sudo docker  start < CONTAINER-ID>
