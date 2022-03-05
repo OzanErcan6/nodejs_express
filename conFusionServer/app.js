@@ -17,6 +17,8 @@ var usersRouter = require('./routes/users');
 const dishRouter = require('./routes/dishRouter')
 const leaderRouter = require('./routes/leaderRouter')
 const promotionRouter = require('./routes/promotionRouter')
+const uploadRouter = require('./routes/uploadRouter');
+
 
 const Dishes = require('./models/dishes')
 const url = config.mongoUrl;
@@ -58,9 +60,12 @@ app.use('/users', usersRouter);
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+//ROUTERS
 app.use('/dishes', dishRouter)
 app.use('/leaders', leaderRouter)
 app.use('/promotions', promotionRouter)
+app.use('/imageUpload',uploadRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
