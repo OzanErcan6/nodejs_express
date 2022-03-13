@@ -1,4 +1,5 @@
 //Express Generator used
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -11,17 +12,15 @@ var passport = require('passport')
 var authenticate = require('./authenticate')
 var config = require('./config');
 
-
-
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var indexRouter = require('./routes/index')
+var usersRouter = require('./routes/users')
 const dishRouter = require('./routes/dishRouter')
 const leaderRouter = require('./routes/leaderRouter')
 const promotionRouter = require('./routes/promotionRouter')
-const uploadRouter = require('./routes/uploadRouter');
+const uploadRouter = require('./routes/uploadRouter')
+const favoriteRouter = require('./routes/favoriteRouter')
 
 
-const Dishes = require('./models/dishes')
 const url = config.mongoUrl;
 
 const options = {
@@ -66,6 +65,8 @@ app.use('/dishes', dishRouter)
 app.use('/leaders', leaderRouter)
 app.use('/promotions', promotionRouter)
 app.use('/imageUpload',uploadRouter);
+app.use('/favorites',favoriteRouter);
+
 
 
 // catch 404 and forward to error handler
